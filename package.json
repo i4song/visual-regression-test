@@ -19,8 +19,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "testdev": "export PORT=4321 && react-scripts start",
+    "test": "cross-env JEST_PUPPETEER_CONFIG=./src/test/e2e/jest-puppeteer.config.js jest --config=./src/test/e2e/jest.config.js",
+    "test-update": "cross-env JEST_PUPPETEER_CONFIG=./src/test/e2e/jest-puppeteer.config.js jest --config=./src/test/e2e/jest.config.js --updateSnapshot"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +41,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jest-image-snapshot": "4.3.1",
+    "cross-env": "7.0.3",
+    "jest": "27.4.7",
+    "jest-image-snapshot": "4.5.1",
+    "jest-puppeteer": "6.0.3",
+    "puppeteer": "13.1.2",
+    "ts-jest": "27.1.3"
   }
 }
